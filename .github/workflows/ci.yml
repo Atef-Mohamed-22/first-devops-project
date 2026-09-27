@@ -39,5 +39,6 @@ jobs:
       - name: Tag and push image
         if: github.event_name == 'push'
         run: |
-          docker tag first-devops-project-api ghcr.io/${{ github.repository_owner }}/first-devops-project-api:v1.0.0
-          docker push ghcr.io/${{ github.repository_owner }}/first-devops-project-api:v1.0.0
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          docker tag first-devops-project-api ghcr.io/${{ github.repository_owner }}/first-devops-project-api:${{ github.sha }}
+          docker push ghcr.io/${{ github.repository_owner }}/first-devops-project-api:${{ github.sha }}
