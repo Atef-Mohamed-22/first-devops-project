@@ -26,7 +26,7 @@ jobs:
         run: pytest tests/
 
       - name: Build Docker image
-        run: docker build -t first-devops-prooject-api:${{ github.sha }} .
+        run: docker build -t first-devops-project-api:${{ github.sha }} .
 
       - name: Log in to GitHub Container Registry
         if: github.event_name == 'push'
@@ -40,5 +40,5 @@ jobs:
         if: github.event_name == 'push'
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          docker tag first-devops-project-api ghcr.io/$OWNER/first-devops-project-api:${{ github.sha }}
+          docker tag first-devops-project-api:${{ github.sha }} ghcr.io/$OWNER/first-devops-project-api:${{ github.sha }}
           docker push ghcr.io/$OWNER/first-devops-project-api:${{ github.sha }}
