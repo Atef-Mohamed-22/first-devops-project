@@ -40,5 +40,5 @@ jobs:
         if: github.event_name == 'push'
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          docker tag first-devops-project-api ghcr.io/${{ github.repository_owner }}/first-devops-project-api:${{ github.sha }}
-          docker push ghcr.io/${{ github.repository_owner }}/first-devops-project-api:${{ github.sha }}
+          docker tag first-devops-project-api ghcr.io/$ONWER/first-devops-project-api:${{ github.sha }}
+          docker push ghcr.io/$ONWER/first-devops-project-api:${{ github.sha }}
