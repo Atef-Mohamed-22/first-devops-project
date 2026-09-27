@@ -26,7 +26,7 @@ jobs:
         run: pytest tests/
 
       - name: Build Docker image
-        run: docker build -t first-devops-prooject-api .
+        run: docker build -t first-devops-prooject-api:${{ github.sha }} .
 
       - name: Log in to GitHub Container Registry
         if: github.event_name == 'push'
