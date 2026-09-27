@@ -28,7 +28,7 @@ H --> I[Running Container / API]
 - Terraform (Docker provider; optional AWS provider)
 \## Project Structure
 ```
-beginner-devops-project/
+first-devops-project/
 ├── app/
 │ ├── app.py
 │ └── requirements.txt
@@ -53,8 +53,8 @@ python3 app/app.py
 ```
 \## Running with Docker
 ```bash
-docker build -t beginner-devops-api .
-docker run -d -p 5000:5000 --name devops-api beginner-devops-api
+docker build -t first-devops-project-api .
+docker run -d -p 5000:5000 --name devops-api first-devops-project-api
 curl http://localhost:5000/health
 ```
 \## Running Tests
